@@ -1,6 +1,5 @@
 import type { Handlers } from "$fresh";
 import type { FreshContext, PageProps } from "$fresh/server.ts";
-import Page from "../components/Page.tsx";
 
 type Datos = {
 
@@ -37,7 +36,31 @@ const Users = (props: PageProps<Datos []>) => {
 
     return (
 
-        <Page {...props}/>
+        <table>
+
+            <tr>
+
+                <th>Nombre</th>
+                <th>Email</th>
+
+            </tr>
+
+            {props.data.map((user:Datos) => {
+
+                return (
+
+                    <tr>
+
+                        <td>{user.name}</td>
+                        <td>{user.email}</td>
+
+                    </tr>
+
+                )
+
+            })}
+
+        </table>
 
     );
 
